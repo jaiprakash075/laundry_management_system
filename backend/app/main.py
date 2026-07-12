@@ -82,7 +82,6 @@ def login(payload: LoginRequest,db: Session = Depends(get_db)):
     if user.role == UserRole.ATTENDANT.value and user.attendant:
         profile_id = user.attendant.id
 
-
     access_token = create_access_token(
     {
         "user_id": user.id,
