@@ -24,8 +24,6 @@ from auth.permissions import (require_admin,require_attendant,require_student,re
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import joinedload
 
-
-
 app = FastAPI()
 
 app.add_middleware(CORSMiddleware,
