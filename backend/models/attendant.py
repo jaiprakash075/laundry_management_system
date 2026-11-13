@@ -3,7 +3,6 @@ from sqlalchemy.orm import relationship
 
 from config.db import Base
 
-
 class Attendant(Base):
     __tablename__ = "attendants"
 

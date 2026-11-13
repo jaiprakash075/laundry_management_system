@@ -4,7 +4,6 @@ from models.enums import UserRole
 
 from config.db import Base
 
-
 class User(Base):
     __tablename__ = "users"
 

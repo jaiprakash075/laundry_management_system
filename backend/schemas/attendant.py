@@ -12,7 +12,6 @@ class AttendantCreate(BaseModel):
     name: str
     phone: str | None = None
 
-
 class AttendantUpdate(BaseModel):
     name: str | None = None
     phone: str | None = None

@@ -3,7 +3,6 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import Numeric
 from config.db import Base
 
-
 class Service(Base):
     __tablename__ = "services"
 

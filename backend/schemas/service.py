@@ -1,10 +1,10 @@
 from pydantic import BaseModel
 from decimal import Decimal
+
 class ServiceCreate(BaseModel):
     name: str
     unit: str
     price: float
-
 
 class ServiceUpdate(BaseModel):
     name: str | None = None

@@ -3,7 +3,6 @@ from auth.dependencies import get_current_user
 from models.user import User
 from models.enums import UserRole
 
-
 def require_admin(current_user: User = Depends(get_current_user)):
     if current_user.role != UserRole.ADMIN:
         raise HTTPException(

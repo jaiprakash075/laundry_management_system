@@ -8,7 +8,6 @@ from sqlalchemy.orm import relationship
 
 from config.db import Base
 
-
 class OrderItem(Base):
     __tablename__ = "order_items"
 

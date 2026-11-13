@@ -2,8 +2,6 @@ from pydantic import BaseModel
 from typing import List
 from schemas.order import StudentOrderResponse
 
-
-
 class StudentCreate(BaseModel):
     username: str
     password: str

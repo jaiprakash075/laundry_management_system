@@ -14,7 +14,6 @@ from datetime import datetime,UTC
 from models.enums import OrderStatus
 from config.db import Base
 
-
 class Order(Base):
     __tablename__ = "orders"
 

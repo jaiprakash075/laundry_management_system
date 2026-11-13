@@ -4,7 +4,6 @@ from sqlalchemy import Numeric
 
 from config.db import Base
 
-
 class Student(Base):
     __tablename__ = "students"
 

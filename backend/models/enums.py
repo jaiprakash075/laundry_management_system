@@ -5,7 +5,6 @@ class UserRole(str, Enum):
     ATTENDANT = "ATTENDANT"
     STUDENT = "STUDENT"
 
-
 class OrderStatus(str, Enum):
     QUEUE = "QUEUE"
     WASHING = "WASHING"
