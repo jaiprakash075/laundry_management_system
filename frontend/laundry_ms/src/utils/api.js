@@ -96,36 +96,18 @@ export const api = {
   patch: (path, body, options) => request(path, { method: 'PATCH', body: JSON.stringify(body), ...options }),
   delete: (path, options) => request(path, { method: 'DELETE', ...options }),
   login: async (username, password) => {
-    // We try to hit the JSON /login endpoint first since it is the actual backend endpoint.
-    // If it fails or we want to support multiple configurations, we fetch and catch.
-    try {
-      const response = await fetch(`${BASE_URL}/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.detail || 'Login failed');
-      }
-      return data; // returns { access_token, token_type }
-    } catch (err) {
-      // If there's an error, fallback to URL-encoded form data to /token as a safety net (if defined elsewhere)
-      console.warn('JSON login failed, trying URL encoded login to /token...', err);
-      const formData = new URLSearchParams();
-      formData.append('username', username);
-      formData.append('password', password);
-      
-      const response = await fetch(`${BASE_URL}/token`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData,
-      });
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.detail || err.message || 'Login failed');
-      }
-      return data;
+    const response = await fetch(`${BASE_URL}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.detail || 'Login failed');
     }
+
+    return data;
   }
 };
